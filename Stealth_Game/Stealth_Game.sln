@@ -1,7 +1,8 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stealth_Game", "Assembly-CSharp.csproj", "{6027C06A-5928-69BC-CF7E-F5A3140409EC}"
+Project("{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{6027C06A-5928-69BC-CF7E-F5A3140409EC}"
+EndProject
+Project("{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1}") = "Assembly-CSharp-Editor-firstpass", "Assembly-CSharp-Editor-firstpass.csproj", "{A13AB2E6-AB37-C06B-9A57-07887CA6D072}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +14,10 @@ Global
 		{6027C06A-5928-69BC-CF7E-F5A3140409EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6027C06A-5928-69BC-CF7E-F5A3140409EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6027C06A-5928-69BC-CF7E-F5A3140409EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A13AB2E6-AB37-C06B-9A57-07887CA6D072}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A13AB2E6-AB37-C06B-9A57-07887CA6D072}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A13AB2E6-AB37-C06B-9A57-07887CA6D072}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A13AB2E6-AB37-C06B-9A57-07887CA6D072}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
