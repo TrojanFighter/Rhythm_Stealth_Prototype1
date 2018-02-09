@@ -11,8 +11,8 @@ public static class GlobalDefine  {
 
 	public enum RhythmState
 	{
-		StealthSong=0,
-		FastMovingSong
+		FastMovingSong=0,
+		StealthSong=1
 	}
 
 
