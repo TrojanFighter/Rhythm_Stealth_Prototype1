@@ -114,7 +114,7 @@ public class Player : MonoBehaviour
 		//controls angle smoothing
 		angle = Mathf.LerpAngle(angle, targetAngle, Time.deltaTime * turnSpeed * inputPressed);
 
-		velocity = transform.forward * moveSpeed* StateManager.Instance.PlayerSpeedModifier * smoothInputPressed;
+		velocity = transform.forward * moveSpeed* StateManager.Instance.PlayerSpeedModifier*StateManager.Instance.m_pitchValue * smoothInputPressed;
 	}
 	//trigger to see if the player has reached the end point, then disable movement
 	void OnTriggerEnter(Collider hitCollider) {

@@ -8,8 +8,9 @@ public class StateManager : MonoBehaviourEX<StateManager>
 	public GlobalDefine.RhythmState m_RhythmState;
 	public InMusicGroup[] m_MusicGroups;
 
-	public float GuardsSpeedModifier=1f,GuardsAngleModifier=1f,PlayerSpeedModifier=1f;
+	public float GuardsSpeedModifier=1f,GuardsTurnSpeedModifier=1f,PlayerSpeedModifier=1f;
 	public float m_pitchValue = 1f;
+	public bool GuardsVisionNormal = true;
 	
 
 	void Start()
@@ -25,14 +26,18 @@ public class StateManager : MonoBehaviourEX<StateManager>
 			case GlobalDefine.RhythmState.FastMovingSong:
 				InAudio.Music.StopAll();
 				InAudio.Music.PlayWithFadeIn(m_MusicGroups[0],0.4f);
-				//PlayerSpeedModifier = 2f;
-				//GuardsSpeedModifier = 1f;
+				GuardsTurnSpeedModifier = 1f;
+				GuardsVisionNormal = true;
+				PlayerSpeedModifier = 1f;
+				GuardsSpeedModifier = 1f;
 				break;
 				case GlobalDefine.RhythmState.StealthSong:
 					InAudio.Music.StopAll();
 					InAudio.Music.PlayWithFadeIn(m_MusicGroups[1],0.4f);
-					//PlayerSpeedModifier = 0.5f;
-					//GuardsSpeedModifier = 0.6f;
+					GuardsTurnSpeedModifier = 0.5f;
+					GuardsVisionNormal = false;
+					PlayerSpeedModifier = 0.2f;
+					GuardsSpeedModifier = 0.6f;
 					
 					break;
 		}

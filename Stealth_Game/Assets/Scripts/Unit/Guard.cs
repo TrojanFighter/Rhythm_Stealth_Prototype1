@@ -15,17 +15,24 @@ public class Guard : MonoBehaviour {
 	public float viewDistance;
 	public LayerMask viewMask;
 
-	float viewAngle;
+	float viewAngle,originViewAngle;
 	float playerVisibleTimer;
 
 	public Transform pathHolder;
 	Transform player;
 	Color MainSpotLightColor;
 
+	void Awake()
+	{
+		viewAngle = spotlight.spotAngle;
+		originViewAngle = spotlight.spotAngle ;
+	}
+
 	void Start() {
 		//finds the player tag
 		player = GameObject.FindGameObjectWithTag ("Player").transform;
-		viewAngle = spotlight.spotAngle;
+		//viewAngle = spotlight.spotAngle;
+		//originViewAngle = spotlight.spotAngle ;
 		MainSpotLightColor = spotlight.color;
 
 		// array of all points in the path, the size depends on the chil dren within the path
@@ -40,6 +47,18 @@ public class Guard : MonoBehaviour {
 	}
 
 	void Update (){
+
+		if (StateManager.Instance.GuardsVisionNormal)
+		{
+			spotlight.spotAngle = originViewAngle;
+			viewAngle = originViewAngle;
+		}
+		else
+		{
+			spotlight.spotAngle = originViewAngle/2;
+			viewAngle = originViewAngle/2;
+		}
+
 		if (CanSeePlayer()) {
 		//counts up or down the visible timer if player is seen or not
 			playerVisibleTimer += Time.deltaTime;
@@ -110,7 +129,7 @@ public class Guard : MonoBehaviour {
 		//rotate to target over time
 		//while loop will stop running once the guard is facing the look target
 		while (Mathf.Abs(Mathf.DeltaAngle(transform.eulerAngles.y, targetAngle)) > 0.05f) {
-			float angle = Mathf.MoveTowardsAngle(transform.eulerAngles.y, targetAngle, turnSpeed * Time.deltaTime);
+			float angle = Mathf.MoveTowardsAngle(transform.eulerAngles.y, targetAngle, turnSpeed *StateManager.Instance.GuardsTurnSpeedModifier* Time.deltaTime);
 			transform.eulerAngles = Vector3.up * angle;
 			yield return null;
 		}
